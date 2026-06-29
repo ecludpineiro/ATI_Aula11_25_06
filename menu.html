@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Aula 12</title>
+</head>
+
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    header{
+        background-color: #222;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+    }
+
+    #menu ul{
+        display: flex;
+        gap: 3rem;
+        list-style: none;
+
+    }
+
+    #menu a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .hamburger{
+        width: 40px;
+        height: 30px;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        cursor: pointer;
+        display: none;
+    }
+
+    .hamburger span{
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .hamburger{
+            display: flex;
+        }
+
+        #menu{
+            position: absolute;
+            top: 70px;
+            left: 0;
+            background-color: #222;
+            width: 100%;
+            padding: 0rem 2rem;
+            max-height: 0px;
+            transition: 1s ease;
+            overflow: hidden;
+        }
+        /* si dentro del menu tiene una clase activa*/
+        #menu.ativo{
+            max-height: 300px;
+            padding: 1rem 2rem;
+        }
+
+        #menu ul{
+            flex-direction: column;
+            gap: 2rem; /* espaçamento entre li da ul*/
+        }
+
+    }
+
+</style>
+
+<body>
+    
+    <header>
+        <h2>LOGOTIPO</h2>
+        <div class="hamburger" id="btnmenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    
+        <nav id="menu" class="ativo">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Serviços</a></li>
+                <li><a href="">Contato</a></li>
+                <li><a href="">Portifólio</a></li>
+                <li><a href="">Login</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <script>
+        let btn_menu = document.getElementById('btnmenu')
+        let menu = document.getElementById('menu')
+
+        btn_menu.addEventListener('click',()=>{
+            // console.log("Usuario clicou no btnmenu")
+            menu.classList.toggle('ativo')
+        })
+
+    </script>
+
+</body>
+</html>
